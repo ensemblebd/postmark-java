@@ -4,7 +4,7 @@
 
     <groupId>com.jaredholdcroft.java</groupId>
     <artifactId>postmark-java</artifactId>
-    <version>1.2</version>
+    <version>1.2.1</version>
     <packaging>jar</packaging>
     <name>postmark-java</name>
     <url>https://github.com/jaredholdcroft/postmark-java</url>

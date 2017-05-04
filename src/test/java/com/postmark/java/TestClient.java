@@ -40,27 +40,18 @@ public class TestClient {
 
         headers.add(new NameValuePair("HEADER", "test"));
 
-        PostmarkMessage message = new PostmarkMessage(args[0],
-                args[1],
-                args[0],
-                args[2],
-                args[3],
-                args[4],
-                args[5],
-                false,
-                args[6],
-                headers);
+        PostmarkMessage message = new PostmarkMessage(
+            "from@test.com", "to@test.com", "replyTo@test.com",
+            "cc@test.com", "bcc@test.com", "Test Subject", "Hello", false, null, headers
+        );
 
+        String testAPIKey = "POSTMARK_API_TEST";
 
-        String apiKey = "POSTMARK_API_TEST";
-        if(args[7] != null)
-            apiKey = args[7];
-            
-
-        PostmarkClient client = new PostmarkClient(apiKey);
+        PostmarkClient client = new PostmarkClient(testAPIKey);
 
         try {
-            client.sendMessage(message);
+            PostmarkResponse response = client.sendMessage(message);
+            System.out.println(response.toString());
         } catch (PostmarkException pe) {
             System.out.println("An error has occurred : " + pe.getMessage());
         }

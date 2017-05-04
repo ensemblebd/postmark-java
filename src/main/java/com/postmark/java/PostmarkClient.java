@@ -173,7 +173,7 @@ public class PostmarkClient {
 
             // Add standard headers required by Postmark
             method.addHeader("Accept", "application/json");
-            method.addHeader("Content-Type", "application/json; charset=utf-8");
+            method.addHeader("Content-Type", "application/json");
             method.addHeader("X-Postmark-Server-Token", serverToken);
             method.addHeader("User-Agent", "Postmark-Java");
 
@@ -212,7 +212,7 @@ public class PostmarkClient {
                         theResponse.status = PostmarkStatus.SERVERERROR;
                         throw new PostmarkException(hre.getMessage(), theResponse);
                     default:
-                        logger.log(Level.SEVERE, "There has been an unknow error sending your email: " + hre.getMessage());
+                        logger.log(Level.SEVERE, "There has been an unknown error sending your email: " + hre.getMessage());
                         theResponse.status = PostmarkStatus.UNKNOWN;
                         theResponse.setMessage(hre.getMessage());
                         throw new PostmarkException(hre.getMessage(), theResponse);

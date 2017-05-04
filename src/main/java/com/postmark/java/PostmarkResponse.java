@@ -51,6 +51,10 @@ public class PostmarkResponse {
     @SerializedName("ErrorCode")
     public int errorCode;
 
+    // The message ID
+    @SerializedName("MessageID")
+    public String messageId;
+
     public PostmarkStatus getStatus() {
         return status;
     }
@@ -89,5 +93,25 @@ public class PostmarkResponse {
 
     public void setErrorCode(int errorCode) {
         this.errorCode = errorCode;
+    }
+
+    public String getMessageId() {
+        return messageId;
+    }
+
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
+
+    @Override
+    public String toString() {
+        return "PostmarkResponse{" +
+            "status=" + status +
+            ", message='" + message + '\'' +
+            ", submittedAt=" + submittedAt +
+            ", to='" + to + '\'' +
+            ", errorCode=" + errorCode +
+            ", messageId='" + messageId + '\'' +
+            '}';
     }
 }
