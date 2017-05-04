@@ -2,9 +2,9 @@ package com.postmark.java;
 
 /**
  * Postmark for Java
- * <p/>
+ * <p>
  * This library can be used to leverage the postmarkapp.com functionality from a Java client
- * <p/>
+ * </p>
  * http://github.com/jaredholdcroft/postmark-java
  */
 

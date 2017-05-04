@@ -23,7 +23,7 @@
 package com.postmark.java;
 
 /**
- * Attachment for a message.<p/>
+ * Attachment for a message.
  * Sample code:
  * <pre>
  * {@code

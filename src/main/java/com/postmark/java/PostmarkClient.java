@@ -40,11 +40,11 @@ import java.util.logging.Logger;
 
 /**
  * Postmark for Java
- * <p/>
+ * <p>
  * This library can be used to leverage the postmarkapp.com functionality from a Java client
- * <p/>
+ * </p>
  *
- * @see <a href="http://github.com/jaredholdcroft/postmark-java"/>
+ * @see <a href="http://github.com/jaredholdcroft/postmark-java"></a>
  */
 
 // Class that does the heavy lifting
@@ -68,7 +68,7 @@ public class PostmarkClient {
 
     /**
      * Initializes a new instance of the PostmarkClient class.
-     * <p/>
+     *
      * If you do not have a server token you can request one by signing up to
      * use Postmark: http://postmarkapp.com.
      *
@@ -95,6 +95,7 @@ public class PostmarkClient {
      * @param body    The message body
      * @param isHTML  Is the body text HTML
      * @param tag     A tag to identify the message in postmark
+     * @throws PostmarkException if unable to send message
      * @return {@link PostmarkResponse} with details about the transaction
      */
     public PostmarkResponse sendMessage(String from, String to, String replyTo, String cc, String subject, String body, boolean isHTML, String tag) throws PostmarkException {
@@ -117,6 +118,7 @@ public class PostmarkClient {
      * @param isHTML  Is the body text HTML
      * @param tag     A tag to identify the message in postmark
      * @param headers A collection of additional mail headers to send with the message
+     * @throws PostmarkException if unable to send message
      * @return {@link PostmarkResponse} with details about the transaction
      */
     public PostmarkResponse sendMessage(String from, String to, String replyTo, String cc, String subject, String body, boolean isHTML, String tag, List<NameValuePair> headers) throws PostmarkException {
@@ -140,6 +142,7 @@ public class PostmarkClient {
      * @param isHTML  Is the body text HTML
      * @param tag     A tag to identify the message in postmark
      * @param headers A collection of additional mail headers to send with the message
+     * @throws PostmarkException if unable to send message
      * @return {@link PostmarkResponse} with details about the transaction
      */
     public PostmarkResponse sendMessage(String from, String to, String replyTo, String cc, String bcc, String subject, String body, boolean isHTML, String tag, List<NameValuePair> headers) throws PostmarkException {
@@ -154,7 +157,8 @@ public class PostmarkClient {
      * sender signature, log in to Postmark and navigate to:
      * http://postmarkapp.com/signatures.
      *
-     * @param message A prepared message instance.</param>
+     * @param message A prepared message instance.
+     * @throws PostmarkException if unable to send message
      * @return A response object
      */
     public PostmarkResponse sendMessage(PostmarkMessage message) throws PostmarkException {
