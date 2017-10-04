@@ -20,8 +20,8 @@ List<NameValuePair> headers = new ArrayList<NameValuePair>();
 
 headers.add(new NameValuePair("HEADER", "test"));
 
-PostmarkMessage message = new PostmarkMessage("TO_ADDRESS",
-        "FROM_ADDRESS",
+PostmarkMessage message = new PostmarkMessage("FROM_ADDRESS",
+        "TO_ADDRESS",
         "REPLY_TO_ADDRESS",
         null,
         "SUBJECT",
