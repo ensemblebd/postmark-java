@@ -22,6 +22,8 @@
 
 package com.postmark.java;
 
+import java.util.List;
+
 /**
  * Postmark for Java
  * <p>
@@ -35,6 +37,7 @@ public class PostmarkException extends Exception {
     private static final long serialVersionUID = 8742554283535762204L;
 
     private PostmarkResponse response;
+    private List<PostmarkResponse> responses;
 
     public PostmarkException(Throwable cause) {
         super(cause);
@@ -49,9 +52,18 @@ public class PostmarkException extends Exception {
 
         this.response = response;
     }
+    public PostmarkException(String message, List<PostmarkResponse> responses) {
+        super(message);
+
+        this.responses = responses;
+    }
 
     public PostmarkResponse getResponse()
     {
         return response;
+    }
+    public List<PostmarkResponse> getResponses()
+    {
+        return responses;
     }
 }

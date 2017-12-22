@@ -10,5 +10,5 @@ package com.postmark.java;
 
 // Enum of possible response statuses
 public enum PostmarkStatus {
-    UNKNOWN, SUCCESS, USERERROR, SERVERERROR
+    UNKNOWN, SUCCESS, USERERROR, SERVERERROR, PARTIALFAILURE
 }

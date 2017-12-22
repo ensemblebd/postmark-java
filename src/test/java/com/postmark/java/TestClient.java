@@ -55,5 +55,7 @@ public class TestClient {
         } catch (PostmarkException pe) {
             System.out.println("An error has occurred : " + pe.getMessage());
         }
+
+        // todo: test the new batch operation as well.
     }
 }

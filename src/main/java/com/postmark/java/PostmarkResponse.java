@@ -27,7 +27,7 @@ import org.joda.time.DateTime;
 
 // Class that wraps the Postmark response
 
-public class PostmarkResponse {
+public class PostmarkResponse implements iPostmarkResponse {
 
     // The status outcome of the response.
     @SerializedName("Status")
@@ -103,8 +103,27 @@ public class PostmarkResponse {
         this.messageId = messageId;
     }
 
+
+    public void updateStatus() {
+        boolean include_description=false; // todo: implement as a static global somewhere?
+        if (this.errorCode!=0) {
+            PostmarkErrorCode code = PostmarkErrorCodes.get(this.errorCode);
+            if (this.message==null || this.message.isEmpty()) {
+                this.message = code.name;
+            }
+            if (include_description) this.message+=code.description;
+            this.status=PostmarkStatus.USERERROR;
+        } else {
+            this.status=PostmarkStatus.SUCCESS;
+            if (this.message==null || this.message.isEmpty()) {
+                this.message="OK";
+            }
+        }
+    }
+
     @Override
     public String toString() {
+        // todo: use gson to properly serialize...
         return "PostmarkResponse{" +
             "status=" + status +
             ", message='" + message + '\'' +
