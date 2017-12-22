@@ -103,7 +103,11 @@ public class PostmarkMessage {
 
         this.headers = (headers == null) ? new ArrayList<NameValuePair>() : headers;
     }
-
+    public PostmarkMessage(String fromAddress, String toAddress, String subject) {
+        this.fromAddress = fromAddress;
+        this.toAddress = toAddress;
+        this.subject = subject;
+    }
 
     public PostmarkMessage(String fromAddress, String toAddress, String replyToAddress, String ccAddress, String subject, String body, boolean isHTML, String tag, List<NameValuePair> headers) {
 
@@ -298,6 +302,17 @@ public class PostmarkMessage {
         this.headers = headers;
     }
 
+    public void addHeader(NameValuePair header) {
+        if (this.headers == null) {
+            this.headers = new ArrayList();
+        }
+        this.headers.add(header);
+    }
+    public void addHeader(String key, String value) {
+        addHeader(new NameValuePair(key, value));
+    }
+
+
     public List<Attachment> getAttachments() {
         return attachments;
     }
@@ -310,6 +325,15 @@ public class PostmarkMessage {
     public void setAttachments(List<Attachment> attachments) {
         this.attachments = attachments;
     }
+
+    public void addAttachment(Attachment attachment) {
+        if (this.attachments == null) {
+            this.attachments = new ArrayList();
+        }
+        this.attachments.add(attachment);
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
